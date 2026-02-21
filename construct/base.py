@@ -23,7 +23,7 @@ class PromptSection:
             content = content + "\n" + self.suffix
         return content
 
-    def format(self, *args, **kwargs) -> str:
+    def format(self, *args: Any, **kwargs: Any) -> str:
         return self.content.format(*args, **kwargs)
 
     def __str__(self) -> str:
@@ -39,9 +39,6 @@ class PromptSection:
 class Example:
     name: str
     content: str
-
-    def format(self, *args, **kwargs) -> str:
-        return self.content.format(*args, **kwargs)
 
 
 class ABCPrompt(ABC):
