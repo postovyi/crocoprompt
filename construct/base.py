@@ -62,3 +62,9 @@ class SectionPrompt(ABCPrompt):
 
     def add_section(self, name: str, section: PromptSection) -> None:
         self._sections[name] = section
+
+    def get_section(self, name: str) -> PromptSection:
+        return self._sections[name]
+
+    def all_sections(self) -> OrderedDict[str, PromptSection]:
+        return self._sections
