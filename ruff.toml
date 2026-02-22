@@ -40,7 +40,7 @@ target-version = "py311"
 
 
 # Source directories for import resolution
-src = ["construct"]
+src = ["construct", "convert"]
 
 
 [lint]
