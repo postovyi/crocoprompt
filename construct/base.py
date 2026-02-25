@@ -16,7 +16,9 @@ class PromptSection:
     suffix: str | None = None
 
     def render(self) -> str:
-        content = self.content.format(**self.variables)
+        content = self.content
+        if self.variables:
+            content = self.content.format(**self.variables)
         if self.prefix:
             content = self.prefix + "\n" + content
         if self.suffix:
