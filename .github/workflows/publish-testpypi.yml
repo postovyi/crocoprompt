@@ -1,0 +1,40 @@
+name: Publish to TestPyPI
+
+on:
+  push:
+    tags:
+      - 'v*.*.*-rc*'
+    branches:
+      - dev
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish-testpypi:
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/project/crocoprompt/
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install build dependencies
+        run: pip install build twine
+      
+      - name: Build distribution
+        run: python -m build
+      
+      - name: Check distribution with twine
+        run: twine check --strict dist/*
+      
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/

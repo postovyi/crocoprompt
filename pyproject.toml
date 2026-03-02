@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "crocoprompt"
+version = "0.1.1"
+description = "A prompt engineering toolkit for structured LLM prompt construction and format conversion"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Oleksii Postovyi" },
+]
+keywords = ["llm", "prompt", "prompt-engineering", "chain-of-thought", "few-shot", "zero-shot"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/postovyi/crocoprompt"
+Repository = "https://github.com/postovyi/crocoprompt"
+"Bug Tracker" = "https://github.com/postovyi/crocoprompt/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.5.1",
+    "pytest>=9.0.2",
+    "ruff>=0.15.2",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["crocoprompt"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github",
+    "/thoughts",
+    "/.pre-commit-config.yaml",
+]
