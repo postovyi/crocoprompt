@@ -1,4 +1,4 @@
-from construct.base import Example, PromptSection, SectionPrompt
+from crocoprompt.construct.base import Example, PromptSection, SectionPrompt
 
 
 def test_prompt_section_render():

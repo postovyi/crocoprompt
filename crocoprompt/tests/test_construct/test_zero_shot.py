@@ -1,5 +1,5 @@
-from construct.base import PromptSection
-from construct.zero_shot import ZeroShotEmotionPrompt, ZeroShotPrompt, ZeroShotRolePrompt
+from crocoprompt.construct.base import PromptSection
+from crocoprompt.construct.zero_shot import ZeroShotEmotionPrompt, ZeroShotPrompt, ZeroShotRolePrompt
 
 
 def test_zero_shot_prompt():

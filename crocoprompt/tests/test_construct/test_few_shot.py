@@ -1,5 +1,5 @@
-from construct.base import Example, PromptSection
-from construct.few_shot import FewShotPrompt
+from crocoprompt.construct.base import Example, PromptSection
+from crocoprompt.construct.few_shot import FewShotPrompt
 
 
 def test_few_shot_prompt():

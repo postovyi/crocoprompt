@@ -1,7 +1,7 @@
-from construct.base import PromptSection
-from construct.thought.cok import ChainOfKnowledge, Triplet
-from construct.thought.cot.base import ChainOfThoughtPrompt
-from construct.thought.cot.cue_cot import CueChainOfThoughtPrompt
+from crocoprompt.construct.base import PromptSection
+from crocoprompt.construct.thought.cok import ChainOfKnowledge, Triplet
+from crocoprompt.construct.thought.cot.base import ChainOfThoughtPrompt
+from crocoprompt.construct.thought.cot.cue_cot import CueChainOfThoughtPrompt
 
 
 def test_chain_of_knowledge():
