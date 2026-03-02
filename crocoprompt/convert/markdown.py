@@ -1,18 +1,18 @@
 """
-XML prompt converter module.
+Markdown prompt converter module.
 """
 
 from typing import override
 
 from construct.base import SectionPrompt
 
-from convert.base import BaseConverter
+from crocoprompt.convert.base import BaseConverter
 
 
-class XMLConverter(BaseConverter):
+class MarkdownConverter(BaseConverter):
     """
-    Converter that compiles a SectionPrompt into XML format.
-    It encloses each section within XML tags matching the section name.
+    Converter that compiles a SectionPrompt into Markdown format.
+    It uses Markdown headers (#) for section names.
     """
 
     @staticmethod
@@ -24,11 +24,13 @@ class XMLConverter(BaseConverter):
         parts = []
         for name in order:
             section = prompt.get_section(name)
-            # Tag names shouldn't have spaces, replacing with underscores just in case
-            tag_name = name.replace(" ", "_")
+            # Convert section name to a title-cased header
+            title = name.replace("_", " ").title()
+
+            section_content = f"# {title}\n"
             content = section.render()
 
-            section_content = f"<{tag_name}>\n{content}\n</{tag_name}>"
+            section_content += content
             parts.append(section_content)
 
         return "\n\n".join(parts)

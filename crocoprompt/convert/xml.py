@@ -1,18 +1,18 @@
 """
-YAML prompt converter module.
+XML prompt converter module.
 """
 
 from typing import override
 
 from construct.base import SectionPrompt
 
-from convert.base import BaseConverter
+from crocoprompt.convert.base import BaseConverter
 
 
-class YAMLConverter(BaseConverter):
+class XMLConverter(BaseConverter):
     """
-    Converter that compiles a SectionPrompt into YAML format.
-    It formats each section as a YAML key with a block scalar value (using |).
+    Converter that compiles a SectionPrompt into XML format.
+    It encloses each section within XML tags matching the section name.
     """
 
     @staticmethod
@@ -24,13 +24,11 @@ class YAMLConverter(BaseConverter):
         parts = []
         for name in order:
             section = prompt.get_section(name)
+            # Tag names shouldn't have spaces, replacing with underscores just in case
+            tag_name = name.replace(" ", "_")
             content = section.render()
 
-            key = f"{name}:"
-
-            indented_content = "\n".join(f"  {line}" for line in content.splitlines())
-
-            section_content = f"{key} |\n{indented_content}"
+            section_content = f"<{tag_name}>\n{content}\n</{tag_name}>"
             parts.append(section_content)
 
         return "\n\n".join(parts)

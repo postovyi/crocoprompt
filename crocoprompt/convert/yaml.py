@@ -1,18 +1,18 @@
 """
-Markdown prompt converter module.
+YAML prompt converter module.
 """
 
 from typing import override
 
 from construct.base import SectionPrompt
 
-from convert.base import BaseConverter
+from crocoprompt.convert.base import BaseConverter
 
 
-class MarkdownConverter(BaseConverter):
+class YAMLConverter(BaseConverter):
     """
-    Converter that compiles a SectionPrompt into Markdown format.
-    It uses Markdown headers (#) for section names.
+    Converter that compiles a SectionPrompt into YAML format.
+    It formats each section as a YAML key with a block scalar value (using |).
     """
 
     @staticmethod
@@ -24,13 +24,13 @@ class MarkdownConverter(BaseConverter):
         parts = []
         for name in order:
             section = prompt.get_section(name)
-            # Convert section name to a title-cased header
-            title = name.replace("_", " ").title()
-
-            section_content = f"# {title}\n"
             content = section.render()
 
-            section_content += content
+            key = f"{name}:"
+
+            indented_content = "\n".join(f"  {line}" for line in content.splitlines())
+
+            section_content = f"{key} |\n{indented_content}"
             parts.append(section_content)
 
         return "\n\n".join(parts)
