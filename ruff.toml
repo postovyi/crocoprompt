@@ -41,7 +41,7 @@ target-version = "py311"
 
 
 # Source directories for import resolution
-src = ["construct", "convert"]
+src = ["crocoprompt"]
 
 
 [lint]

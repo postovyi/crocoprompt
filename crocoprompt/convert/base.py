@@ -4,7 +4,7 @@ Base converter module defining interfaces for compiling prompt modules into stri
 
 from abc import ABC, abstractmethod
 
-from construct.base import SectionPrompt
+from crocoprompt.construct.base import SectionPrompt
 
 
 class BaseConverter(ABC):

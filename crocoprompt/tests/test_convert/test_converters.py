@@ -1,8 +1,8 @@
 import pytest
-from construct.base import PromptSection, SectionPrompt
-from convert.markdown import MarkdownConverter
-from convert.xml import XMLConverter
-from convert.yaml import YAMLConverter
+from crocoprompt.construct.base import PromptSection, SectionPrompt
+from crocoprompt.convert import MarkdownConverter
+from crocoprompt.convert import XMLConverter
+from crocoprompt.convert import YAMLConverter
 
 
 @pytest.fixture
