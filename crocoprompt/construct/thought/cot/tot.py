@@ -59,10 +59,10 @@ class TreeOfThoughtPrompt(ZeroShotPrompt):
 
     This prompt composes four sections:
 
-    * ``instructions`` – the main task description
-    * ``thinking_guidelines`` – how the model should explore alternatives
-    * ``branches`` – multiple candidate reasoning branches
-    * ``selection`` – guidance on selecting or aggregating branches
+    * ``instructions`` - the main task description
+    * ``thinking_guidelines`` - how the model should explore alternatives
+    * ``branches`` - multiple candidate reasoning branches
+    * ``selection`` - guidance on selecting or aggregating branches
 
     Args:
         instructions: The primary task instruction section.
